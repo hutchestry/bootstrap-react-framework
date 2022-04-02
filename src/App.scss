@@ -1,5 +1,15 @@
-@import "custom";
-
-body {
-  background-color: $white;
+@import "scss/custom.scss";
+/* import bootstrap to set changes */
+// @import "../node_modules/bootstrap/scss/bootstrap";
+// @import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
+html{
+  font-size: 62.5%;
 }
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 100px;
+  font-size: $font-size-base;
+}
+
