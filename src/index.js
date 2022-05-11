@@ -21,7 +21,10 @@ import {
   Research,
   Search,
   Salaries,
-  Interview
+  Interview,
+  JobListing,
+  Profile,
+  EditProfile
 } from "./pages";
 // Importing Sass with Bootstrap CSS
 import './App.scss';
@@ -41,6 +44,9 @@ ReactDOM.render(
       <Route path="/research" element={<Research />} />
       <Route path="/companies" element={<Companies />} />
       <Route path="/interview" element={<Interview />} />
+      <Route path="/listing" element={<JobListing />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/edit-profile" element={<EditProfile />} />
 
       <Route path="/agent" element={<Agent />} />
       <Route path="/search" element={<Search />} />

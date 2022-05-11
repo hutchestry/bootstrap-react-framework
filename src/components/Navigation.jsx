@@ -36,11 +36,11 @@ function Navigation() {
                     Salaries
                   </Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/agent">
+                {/* <LinkContainer to="/agent">
                   <Nav.Link>
                       Agent
                   </Nav.Link>
-                </LinkContainer>
+                </LinkContainer> */}
                 {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -48,7 +48,7 @@ function Navigation() {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown> */}
-                <LinkContainer to="/sign-up">
+                <LinkContainer to="/agent">
                   <Nav.Link>
                     <Button>Sign Up</Button>
                   </Nav.Link>

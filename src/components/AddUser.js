@@ -41,7 +41,7 @@ export default function AddUser() {
         <Form.Label>Middle Name</Form.Label>
     <Form.Control 
       type="text"
-      placeholder="MIddle Name"
+      placeholder="Middle Name"
               {...register("middleName", { pattern: /^[A-Za-z]+$/i })}
                />
     </Form.Group>

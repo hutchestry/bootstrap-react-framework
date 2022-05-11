@@ -40,7 +40,7 @@ function Home() {
             <Form className="text-center pb-5">
               <Form.Text className="text-center mb-3 fs-5">Smash the big button, Let's Klimb!!</Form.Text>
               <Form.Group className="col-12 mb-3 text-center">
-                  <LinkContainer to="/sign-up">
+                  <LinkContainer to="/agent">
                     <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">big button!</Button>
                   </LinkContainer>
               </Form.Group>
@@ -51,7 +51,7 @@ function Home() {
           <Col xs={4}>
 							<div className="card-wrapper">
 								<div className="fs-1 text-secondary lh-1 mb-5 text-center">Build your own Career Agent Let them do the Klimbing for you!</div>
-                <LinkContainer to="/sign-up">
+                <LinkContainer to="/agent">
                   <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">Get Started</Button>
                 </LinkContainer>
               </div>

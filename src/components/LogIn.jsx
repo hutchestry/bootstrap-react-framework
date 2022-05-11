@@ -13,7 +13,7 @@ export default function LogIn() {
         <Form.Label>Email address</Form.Label>
         <Form.Control
         type="email"
-        placeholder="Email Address"
+        placeholder="Email Address" 
           {...register("email", { required: true })} 
         />
         <Form.Text className="text-muted">
