@@ -88,7 +88,7 @@ const ProfileDetails = ({
                   <JobMini />
                 </Col>
                 <Col xs={12} lg={6}>
-                  <h2 className="display-6 text-secondary lh-1 mt-1 mb-3">Job Matches</h2>
+                  <h2 className="display-6 text-secondary lh-1 mt-1 mb-3">Your Preferences</h2>
                   <div className="bg-white p-3 rounded">
                 <Row className="mt-3 pb-3 border-bottom border-light border-2">
                 {/* <Form.Group className="col-md-12"><Form.Label className="labels">Open to Relocation</Form.Label><Form.Control type="text" className="form-control" placeholder="enter email id" defaultValue={relocation}  /></Form.Group> */}
