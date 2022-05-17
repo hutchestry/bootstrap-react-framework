@@ -9,7 +9,7 @@ export default function JobLister(props) {
         <>
           {jobs.map((data, key) => {
             return (
-              <div key={key}>
+              <div className="job-list-item" key={key}>
                 <Job
                   key={key}
                   company={data.company}
@@ -51,7 +51,7 @@ const Job = ({
 }) => {
   if (!company) return <div />;
   return (
-    <div className="job-list-item">
+    <>
       {/* <h5 className="jobjob-title">{jobTitle}</h5> */}
       <div className="listing-block">
         <div className="job-category">{jobCategory}</div>
@@ -74,6 +74,6 @@ const Job = ({
           More Details
         </a>
       </div>
-    </div>
+      </>
   );
 };

@@ -1,10 +1,36 @@
 import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
-import LinkContainer from "react-router-bootstrap/LinkContainer";
-import Monkey from "../assets/images/smart-monkey-cartoon-character-vector-removebg-preview.png"
 
 
-function Home() {
+const Home = (props) => {
+
+  const [inputCompany, setinputCompany] = useState("");
+
+  const handleChange = e => {
+    setinputCompany(e.target.value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    // alert("you have searched for - " + inputCompany);
+    // or you can send data to backend
+  };
+
+  const handleKeypress = e => {
+      //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+      handleSubmit();
+    }
+  };
+  // this is for the first Link
+  const urlParams = {
+    company: inputCompany,
+    page: 1,
+  };
+  console.log(urlParams);
+
   return (
     <section className="bg-light">
       <Container className=" py-5">
@@ -13,21 +39,40 @@ function Home() {
             <h1 className="fs-1 text-secondary lh-1 mb-3 text-center">Search Jobs <span className="fs-6">(the old typy way)</span></h1>
             <Form className="align-items-end justify-content-center py-5">
               <Form.Group controlId="formJobSearch" className="col-12 mb-3">
-                <Form.Label className="text-secondary">Location</Form.Label>
-                <Form.Control type="text" placeholder="Location" />
+                <Form.Label className="text-secondary">Company</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  placeholder="Company"
+                  value={inputCompany}
+                  onChange={handleChange}
+                  onKeyPress={handleKeypress}
+                />
               </Form.Group>
               <Form.Group controlId="formJobSearch" className="col-12 mb-3">
-                  <Form.Label className="text-secondary">Keywords</Form.Label>
-                  <Form.Control type="text" placeholder="Keywords" />
+                  <Form.Label className="text-secondary">Page</Form.Label>
+                  <Form.Control type="text" placeholder="Page" />
               </Form.Group>
               <Form.Group className="col-12 mb-3">
-                  <LinkContainer to="/search">
+                  <Link to="/search" state={urlParams}>
                     <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">GO!</Button>
-                  </LinkContainer>
+                  </Link>
               </Form.Group>
             </Form>
+
+        {/* <form>
+          <input
+            value={inputCompany}
+            onChange={handleChange}
+            onKeyPress={handleKeypress}
+          />
+          <Link to="/search" state={urlParams}>
+            <button type="submit">
+              Submit
+            </button>
+        </Link>
+        </form> */}
           </Col>
-          <Col xs={2} className="align-items-center">
+          {/* <Col xs={2} className="align-items-center">
             <h1 className="fs-1 text-secondary lh-1 mb-5 text-center">~ Or ~</h1>
           </Col>
           <Col xs={6}>
@@ -63,7 +108,7 @@ function Home() {
                 <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">Explore</Button>
               </LinkContainer>
             </div>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </section>
