@@ -12,7 +12,7 @@ const JobData = (props) => {
   const [jobs, getJobs] = useState("");
   const location = useLocation();
   const state = location.state;
-  const url = `/job-directory/${state.company}/jobs?page=${state.page}&key=F95uhazqvZCNlYWDQE42`;
+  const url = `/job-directory/jobs?company=${state.company}&page=${state.page}&key=F95uhazqvZCNlYWDQE42`;
 
   useEffect((url) => {
     getAllJobs();

@@ -360,6 +360,10 @@ $navbar-toggler-transition:         box-shadow .15s ease-in-out !default;
   
   .job-category {
     font-weight: bold;
+    text-transform: capitalize;
+  }
+  .job-company {
+    text-transform: capitalize;
   }
   
   .listing-block {

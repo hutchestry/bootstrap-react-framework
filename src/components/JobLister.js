@@ -54,7 +54,8 @@ const Job = ({
     <>
       {/* <h5 className="jobjob-title">{jobTitle}</h5> */}
       <div className="listing-block">
-        <div className="job-category">{jobCategory}</div>
+      <div className="job-category">{jobTitle}</div>
+        {/* <div className="job-category">{jobCategory}</div> */}
         <div className="job-company">{company}</div>
       </div>
       <div className="listing-block">
