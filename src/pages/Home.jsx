@@ -1,15 +1,21 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 
 
 const Home = (props) => {
 
   const [inputCompany, setinputCompany] = useState("");
+  const [inputPage, setinputPage] = useState("");
 
   const handleChange = e => {
-    setinputCompany(e.target.value);
+    if (e.target.placeholder === "Company") {
+      setinputCompany(e.target.value);
+    }
+    if (e.target.placeholder === "Page") {
+      setinputPage(e.target.value);
+    }
   };
 
   const handleSubmit = e => {
@@ -27,9 +33,9 @@ const Home = (props) => {
   // this is for the first Link
   const urlParams = {
     company: inputCompany,
-    page: 1,
+    page: inputPage ? inputPage : 1,
   };
-  console.log(urlParams);
+
 
   return (
     <section className="bg-light">
@@ -50,7 +56,13 @@ const Home = (props) => {
               </Form.Group>
               <Form.Group controlId="formJobSearch" className="col-12 mb-3">
                   <Form.Label className="text-secondary">Page</Form.Label>
-                  <Form.Control type="text" placeholder="Page" />
+                  <Form.Control 
+                    type="text" 
+                    placeholder="Page" 
+                    value={inputPage}
+                    onChange={handleChange}
+                    onKeyPress={handleKeypress}
+                  />
               </Form.Group>
               <Form.Group className="col-12 mb-3">
                   <Link to="/search" state={urlParams}>
