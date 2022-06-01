@@ -22,7 +22,7 @@ export const JobMini = (props) => {
                 jobDescription={Buffer.from(
                   data.jobDescription,
                   "base64"
-                ).toString()}
+                ).toString().replace(/(\.\s+)/g,"\$1<br /><br />")}
                 jobPostDate={data.jobPostDate}
                 jobID={data.jobID}
                 jobApplyLink={data.jobApplyLink}
@@ -57,7 +57,7 @@ const Job = ({
 
   return (
     <div className="bg-white p-3 mb-3 rounded">
-      <h6 className="fw-bold">{jobCategory} | <span className="text-capitalize">{company}</span></h6>
+      <h6 className="fw-bold">{jobTitle} | <span className="text-capitalize">{company}</span></h6>
       <div className="job-location">
         {jobLocation} 
         <a className="job-link text-end" 

@@ -43,10 +43,10 @@ const JobData = (props) => {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col lg={7}>
           <Mappy jobs={jobs} />
           </Col>
-          <Col>
+          <Col lg={5}>
           <div>
             <p><span className="fw-bold">Total Jobs: </span>{totalJobs}</p>
           </div>

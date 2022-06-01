@@ -41,7 +41,7 @@ const Home = (props) => {
     <section className="bg-light">
       <Container className=" py-5">
         <Row className="justify-content-center pb-5" style={{marginBottom: 100}}>
-          <Col xs={4}>
+          <Col lg={4}>
             <h1 className="fs-1 text-secondary lh-1 mb-3 text-center">Search Jobs <span className="fs-6">(the old typy way)</span></h1>
             <Form className="align-items-end justify-content-center py-5">
               <Form.Group controlId="formJobSearch" className="col-12 mb-3">
