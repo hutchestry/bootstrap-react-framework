@@ -1,8 +1,9 @@
 import React from "react";
-import { Buffer } from "buffer";
+import { Buffer } from "buffer"; // convert from base64
 
 export default function JobLister(props) {
   const { jobs } = props;
+  console.log(props);
 
   if (jobs.length > 0) {
       return (

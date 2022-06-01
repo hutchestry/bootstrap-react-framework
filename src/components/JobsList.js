@@ -6,10 +6,12 @@ import { Mappy } from "./Mappy";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import Filters from "./Filters";
 import { JobMini } from "./JobMini";
+import { jobData } from "./JobData";
 // import { jobData } from "./JobData";
 
 
 const JobData = (props) => {
+  const [totalJobs, getTotalJobs] = useState("");
   const [jobs, getJobs] = useState("");
   const location = useLocation();
   const state = location.state;
@@ -27,7 +29,9 @@ const JobData = (props) => {
       // handle success
       console.log(response);
       const jobData = response.data.jobs;
+      const total = response.data.total;
       getJobs(jobData);
+      getTotalJobs(total);
     })
     .catch(error => console.error(`Error: $(error)`));
   }
@@ -43,6 +47,9 @@ const JobData = (props) => {
           <Mappy jobs={jobs} />
           </Col>
           <Col>
+          <div>
+            <p><span className="fw-bold">Total Jobs: </span>{totalJobs}</p>
+          </div>
           <JobMini jobs={jobs} />
           </Col>
         </Row>

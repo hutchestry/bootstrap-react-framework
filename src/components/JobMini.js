@@ -1,12 +1,15 @@
 import React, {useState} from "react";
 import { Buffer } from "buffer"; // convert from base64
-import { jobData } from "./JobData";
+// import { jobData } from "./JobData";
 import Collapse from 'react-bootstrap/Collapse'
 
-export const JobMini = () => {
+export const JobMini = (props) => {
+  const { jobs } = props;
+
+  if (jobs.length > 0) {
   return (
     <>
-        {jobData.map((data, key) => {
+        {jobs.map((data, key) => {
           return (
             <div key={key}>
               <Job
@@ -28,9 +31,13 @@ export const JobMini = () => {
               />
             </div>
           );
-        }).filter((e,k) => k < 10)}
+        // }).filter((e,k) => k < 10)}
+        })}
     </>
   );
+} else {
+  return (<h3>No Jobs to display</h3>)
+};
 };
 
 const Job = ({
@@ -53,8 +60,8 @@ const Job = ({
       <h6 className="fw-bold">{jobCategory} | <span className="text-capitalize">{company}</span></h6>
       <div className="job-location">
         {jobLocation} 
-        <a className="job-link float-end" 
-          href={jobLink}
+        <a className="job-link text-end" 
+          // href={}
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
           aria-expanded={open}
@@ -65,7 +72,7 @@ const Job = ({
         <div>
           <div className="job-description"> {jobDescription}</div>
           <div className="listing-block justify-center">
-            <a className="job-apply-btn job-applylink mt-3" href={jobApplyLink}>
+            <a className="job-apply-btn job-applylink mt-3" href={jobApplyLink} target='blank'>
               Apply Now
             </a>
           </div>

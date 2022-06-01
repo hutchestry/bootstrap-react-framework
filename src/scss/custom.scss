@@ -365,6 +365,11 @@ $navbar-toggler-transition:         box-shadow .15s ease-in-out !default;
   .job-company {
     text-transform: capitalize;
   }
+  .job-location {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+  }
   
   .listing-block {
     display: flex;
