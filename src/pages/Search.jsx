@@ -5,6 +5,7 @@ import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import Filters from "../components/Filters";
 import {Mappy} from "../components/Mappy";
 import JobsList from "../components/JobsList"
+import { JobMini } from "../components/JobMini";
 
 const Search = (props) => {
 
@@ -59,7 +60,8 @@ const Search = (props) => {
             </Form>
           </Col>
         </Row> */}
-          <JobsList />
+          {/* <JobsList /> */}
+          <JobMini />
       </Container>
     </section>
   );
