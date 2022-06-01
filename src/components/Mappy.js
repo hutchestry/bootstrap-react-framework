@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 // import ReactDOM from "react-dom";
-import { jobData } from "./JobData";
+// import { jobData } from "./JobData";
 
 // We will use these things from the lib
 // https://react-google-maps-api-docs.netlify.com/
@@ -11,7 +11,9 @@ import {
   InfoWindow
 } from "@react-google-maps/api";
 
-export const Mappy = () => {
+export const Mappy = (props) => {
+  const { jobs } = props;
+
   // The things we need to track in state
   const [mapRef, setMapRef] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -32,7 +34,7 @@ export const Mappy = () => {
   // Iterate myPlaces to size, center, and zoom map to contain all markers
   const fitBounds = map => {
     const bounds = new window.google.maps.LatLngBounds();
-    jobData.map(place => {
+    jobs.map(place => {
       bounds.extend(new window.google.maps.LatLng(place.jobLat, place.jobLong));
       return place.id;
     }); 
@@ -104,7 +106,7 @@ export const Mappy = () => {
             width: "100%"
           }}
         >
-          {jobData.map(place => (
+          {jobs.map(place => (
             <Marker
               key={place.jobID}
               position={new window.google.maps.LatLng(place.jobLat, place.jobLong)}

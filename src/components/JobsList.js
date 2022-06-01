@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import apiClient from "./http-common";
-import JobLister from "./JobLister";
-import { useLocation } from "react-router-dom";
 import { Mappy } from "./Mappy";
-import { Col, Container, Row, Button, Form } from "react-bootstrap";
+import { Col, Row} from "react-bootstrap";
 import Filters from "./Filters";
 import { JobMini } from "./JobMini";
 import { useSearchParams } from "react-router-dom";
-// import Pagination from "./Pagination";
+import Pagination from "./Pagination";
 
-
-// import { jobData } from "./JobData";
-// import { jobData } from "./JobData";
 // Stuff for AXIOS call
 function escapeRegex(string) { // sanitizing the search term
   return encodeURIComponent(string.replace(/[' .*+?^${}()|[\]\\]/g, '').toLowerCase());
@@ -60,14 +55,14 @@ const JobData = (props) => {
             <p><span className="fw-bold">{jobTotal} jobs for "{state.searchTerm}"! </span></p>
           <JobMini jobs={jobData} />
 
-{/* {
-  state && state.loaded && (
-      <Pagination
-      totPages={state.totalPages}
-      currentPage={parseInt(state.page)}
-    />
-    )
-  } */}
+          {
+            state && state.loaded && (
+                <Pagination
+                totPages={state.totalPages}
+                currentPage={parseInt(state.page)}
+              />
+              )
+            }
           </Col>
         </Row>
         </>
