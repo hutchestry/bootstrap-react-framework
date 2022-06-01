@@ -1,70 +1,67 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+// Search.js
+import React, { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
-import Filters from "../components/Filters";
-import {Mappy} from "../components/Mappy";
-import JobsList from "../components/JobsList"
-import { JobMini } from "../components/JobMini";
+import apiClient from "../components/http-common";
+import SearchBox from "../components/SearchBox";
+import Pagination from "../components/Pagination";
+import JobsList from "../components/JobsList";
+
+// Stuff for AXIOS call
+function escapeRegex(string) { // sanitizing the search term
+  return encodeURIComponent(string.replace(/[' .*+?^${}()|[\]\\]/g, '').toLowerCase());
+}
 
 const Search = (props) => {
+  const [jobTotal, getTotalJobs] = useState("");
+  const [loaded, loadingState] = useState(false);
+  const [jobData, getJobs] = useState([]);
+  const [searchParams] = useSearchParams([]);
+  const state = {
+    searchTerm: searchParams.get('search'),
+    page: searchParams.get('page'),
+    totalPages: Math.ceil(jobTotal/10),
+    loaded: loaded
+  }
+  console.log(state);
+  const url = `/job-directory/jobs?search=${escapeRegex(state.searchTerm)}&page=${state.page}&key=F95uhazqvZCNlYWDQE42`;
 
-  const [inputCompany, setinputCompany] = useState("");
+  useEffect(() => {
+    getAllJobs();
+  }, [url]);
 
-  const handleChange = e => {
-    setinputCompany(e.target.value);
-  };
+  const getAllJobs = () => {
+    apiClient.get(url)
+    .then(function (response) {
+      // handle success
+      loadingState(true);
+      getTotalJobs(response.data.total);
+      getJobs(response.data.jobs);
+    })
+    .catch(error => console.error(`Error: $(error)`));
+  }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // alert("you have searched for - " + inputCompany);
-    // or you can send data to backend
-  };
-
-  const handleKeypress = e => {
-      //it triggers by pressing the enter key
-    if (e.keyCode === 13) {
-      handleSubmit();
-    }
-  };
-  // this is for the first Link
-  const urlParams = {
-    company: inputCompany,
-    page: 1,
-  };
   return (
+    <>
     <section className="bg-light">
       <Container className=" py-5">
-        {/* <Row className="flex-lg-row-reverse align-items-center">
-          <Col xs={12}>
-          <Form className="align-items-end justify-content-center py-5">
-              <Form.Group controlId="formJobSearch" className="col-12 mb-3">
-                <Form.Label className="text-secondary">Company</Form.Label>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Company"
-                  value={inputCompany}
-                  onChange={handleChange}
-                  onKeyPress={handleKeypress}
-                />
-              </Form.Group>
-              <Form.Group controlId="formJobSearch" className="col-12 mb-3">
-                  <Form.Label className="text-secondary">Page</Form.Label>
-                  <Form.Control type="text" placeholder="Page" />
-              </Form.Group>
-              <Form.Group className="col-12 mb-3">
-                  <Link to="/search" state={urlParams}>
-                    <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">GO!</Button>
-                  </Link>
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row> */}
+
+      <SearchBox />
+
           <JobsList />
-          {/* <JobMini /> */}
+
+      {
+        state && state.loaded && (
+            <Pagination
+            totPages={state.totalPages}
+            currentPage={parseInt(state.page)}
+          />
+          )
+        }
       </Container>
     </section>
+    </>
   );
-}
+};
 
 export default Search;

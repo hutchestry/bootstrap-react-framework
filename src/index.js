@@ -37,7 +37,7 @@ ReactDOM.render(
       <Route path="/about" element={<About />} />
       <Route path="/account" element={<Account />} />
       <Route path="/salaries" element={<Salaries />} />
-      <Route path="/search" element={<Search />} />
+      <Route path="/jobs" element={<Search />} />
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/contact" element={<Contact />} />

@@ -6,32 +6,42 @@ import { Mappy } from "./Mappy";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import Filters from "./Filters";
 import { JobMini } from "./JobMini";
-import { jobData } from "./JobData";
-// import { jobData } from "./JobData";
+import { useSearchParams } from "react-router-dom";
+// import Pagination from "./Pagination";
 
+
+// import { jobData } from "./JobData";
+// import { jobData } from "./JobData";
+// Stuff for AXIOS call
+function escapeRegex(string) { // sanitizing the search term
+  return encodeURIComponent(string.replace(/[' .*+?^${}()|[\]\\]/g, '').toLowerCase());
+}
 
 const JobData = (props) => {
-  const [totalJobs, getTotalJobs] = useState("");
-  const [jobs, getJobs] = useState("");
-  const location = useLocation();
-  const state = location.state;
-  const url = `/job-directory/jobs?search=${state.company}&page=${state.page}&key=F95uhazqvZCNlYWDQE42`;
-  // const url = `/place`;
+  const [jobTotal, getTotalJobs] = useState("");
+  const [loaded, loadingState] = useState(false);
+  const [jobData, getJobs] = useState([]);
+  const [searchParams] = useSearchParams([]);
+  const state = {
+    searchTerm: searchParams.get('search'),
+    page: searchParams.get('page'),
+    totalPages: Math.ceil(jobTotal/10),
+    loaded: loaded
+  }
+  console.log(state);
+  const url = `/job-directory/jobs?search=${escapeRegex(state.searchTerm)}&page=${state.page}&key=F95uhazqvZCNlYWDQE42`;
 
-  useEffect((url) => {
+  useEffect(() => {
     getAllJobs();
-  }, []);
+  }, [url]);
 
   const getAllJobs = () => {
-    // apiClient.get('/place')
     apiClient.get(url)
     .then(function (response) {
       // handle success
-      console.log(response);
-      const jobData = response.data.jobs;
-      const total = response.data.total;
-      getJobs(jobData);
-      getTotalJobs(total);
+      loadingState(true);
+      getTotalJobs(response.data.total);
+      getJobs(response.data.jobs);
     })
     .catch(error => console.error(`Error: $(error)`));
   }
@@ -44,13 +54,20 @@ const JobData = (props) => {
         </Row>
         <Row>
           <Col lg={7}>
-          <Mappy jobs={jobs} />
+          <Mappy jobs={jobData} />
           </Col>
           <Col lg={5}>
-          <div>
-            <p><span className="fw-bold">Total Jobs: </span>{totalJobs}</p>
-          </div>
-          <JobMini jobs={jobs} />
+            <p><span className="fw-bold">{jobTotal} jobs for "{state.searchTerm}"! </span></p>
+          <JobMini jobs={jobData} />
+
+{/* {
+  state && state.loaded && (
+      <Pagination
+      totPages={state.totalPages}
+      currentPage={parseInt(state.page)}
+    />
+    )
+  } */}
           </Col>
         </Row>
         </>

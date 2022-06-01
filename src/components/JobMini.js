@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { Buffer } from "buffer"; // convert from base64
-// import { jobData } from "./JobData";
 import Collapse from 'react-bootstrap/Collapse'
 
 export const JobMini = (props) => {

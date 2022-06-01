@@ -1,40 +1,39 @@
 import React from "react";
-import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { Col, Container, Row, Button, Form } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
+import SearchBox from "../components/SearchBox";
 
 
 const Home = (props) => {
 
-  const [inputCompany, setinputCompany] = useState("");
-  const [inputPage, setinputPage] = useState("");
+  // const [inputCompany, setinputCompany] = useState("");
+  // const [inputPage, setinputPage] = useState("");
 
-  const handleChange = e => {
-    if (e.target.placeholder === "Company") {
-      setinputCompany(e.target.value);
-    }
-    if (e.target.placeholder === "Page") {
-      setinputPage(e.target.value);
-    }
-  };
+  // const handleChange = e => {
+  //   if (e.target.placeholder === "Company") {
+  //     setinputCompany(e.target.value);
+  //   }
+  //   if (e.target.placeholder === "Page") {
+  //     setinputPage(e.target.value);
+  //   }
+  // };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // alert("you have searched for - " + inputCompany);
-    // or you can send data to backend
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   // alert("you have searched for - " + inputCompany);
+  //   // or you can send data to backend
+  // };
 
-  const handleKeypress = e => {
-      //it triggers by pressing the enter key
-    if (e.keyCode === 13) {
-      handleSubmit();
-    }
-  };
-  // this is for the first Link
-  const urlParams = {
-    company: inputCompany,
-    page: inputPage ? inputPage : 1,
-  };
+  // const handleKeypress = e => {
+  //     //it triggers by pressing the enter key
+  //   if (e.keyCode === 13) {
+  //     handleSubmit();
+  //   }
+  // };
+  // // this is for the first Link
+  // const urlParams = {
+  //   company: inputCompany,
+  //   page: inputPage ? inputPage : 1,
+  // };
 
 
   return (
@@ -43,33 +42,8 @@ const Home = (props) => {
         <Row className="justify-content-center pb-5" style={{marginBottom: 100}}>
           <Col lg={4}>
             <h1 className="fs-1 text-secondary lh-1 mb-3 text-center">Search Jobs <span className="fs-6">(the old typy way)</span></h1>
-            <Form className="align-items-end justify-content-center py-5">
-              <Form.Group controlId="formJobSearch" className="col-12 mb-3">
-                <Form.Label className="text-secondary">Company</Form.Label>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Company"
-                  value={inputCompany}
-                  onChange={handleChange}
-                  onKeyPress={handleKeypress}
-                />
-              </Form.Group>
-              <Form.Group controlId="formJobSearch" className="col-12 mb-3">
-                  <Form.Label className="text-secondary">Page</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder="Page" 
-                    value={inputPage}
-                    onChange={handleChange}
-                    onKeyPress={handleKeypress}
-                  />
-              </Form.Group>
-              <Form.Group className="col-12 mb-3">
-                  <Link to="/search" state={urlParams}>
-                    <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">GO!</Button>
-                  </Link>
-              </Form.Group>
-            </Form>
+            
+            <SearchBox />
 
         {/* <form>
           <input
