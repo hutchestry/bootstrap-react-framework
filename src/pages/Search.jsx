@@ -60,8 +60,8 @@ const Search = (props) => {
             </Form>
           </Col>
         </Row> */}
-          {/* <JobsList /> */}
-          <JobMini />
+          <JobsList />
+          {/* <JobMini /> */}
       </Container>
     </section>
   );

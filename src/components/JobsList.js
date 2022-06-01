@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { Mappy } from "./Mappy";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import Filters from "./Filters";
+import { JobMini } from "./JobMini";
 // import { jobData } from "./JobData";
 
 
@@ -42,7 +43,7 @@ const JobData = (props) => {
           <Mappy jobs={jobs} />
           </Col>
           <Col>
-          <JobLister jobs={jobs} />
+          <JobMini jobs={jobs} />
           </Col>
         </Row>
         </>
