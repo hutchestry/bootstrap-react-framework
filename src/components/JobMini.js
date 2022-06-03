@@ -4,8 +4,9 @@ import Collapse from 'react-bootstrap/Collapse'
 
 export const JobMini = (props) => {
   const { jobs } = props;
+  console.log(props.state);
 
-  if (jobs.length > 0) {
+  if (jobs && jobs.length > 0) {
   return (
     <>
         {jobs.map((data, key) => {
@@ -18,10 +19,7 @@ export const JobMini = (props) => {
                 jobCategory={data.jobCategory}
                 jobType={data.jobType}
                 jobLocation={data.jobLocation}
-                jobDescription={Buffer.from(
-                  data.jobDescription,
-                  "base64"
-                ).toString().replace(/(\.\s+)/g,"\$1<br /><br />")}
+                jobDescription={data.jobDescription.replace(/(\.\s+)/g,"\$1<br /><br />")}
                 jobPostDate={data.jobPostDate}
                 jobID={data.jobID}
                 jobApplyLink={data.jobApplyLink}
@@ -35,7 +33,12 @@ export const JobMini = (props) => {
     </>
   );
 } else {
-  return (<h3>No Jobs to display</h3>)
+  return (
+  
+    // {state && state.loaded && (
+    //   (<h3>Loading...</h3>)
+    // )}
+  <h3>Loading...</h3>)
 };
 };
 
@@ -60,7 +63,7 @@ const Job = ({
       <div className="job-location">
         {jobLocation} 
         <a className="job-link text-end" 
-          // href={}
+          // href="#"
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
           aria-expanded={open}

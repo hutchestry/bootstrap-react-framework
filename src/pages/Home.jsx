@@ -5,96 +5,17 @@ import SearchBox from "../components/SearchBox";
 
 const Home = (props) => {
 
-  // const [inputCompany, setinputCompany] = useState("");
-  // const [inputPage, setinputPage] = useState("");
-
-  // const handleChange = e => {
-  //   if (e.target.placeholder === "Company") {
-  //     setinputCompany(e.target.value);
-  //   }
-  //   if (e.target.placeholder === "Page") {
-  //     setinputPage(e.target.value);
-  //   }
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   // alert("you have searched for - " + inputCompany);
-  //   // or you can send data to backend
-  // };
-
-  // const handleKeypress = e => {
-  //     //it triggers by pressing the enter key
-  //   if (e.keyCode === 13) {
-  //     handleSubmit();
-  //   }
-  // };
-  // // this is for the first Link
-  // const urlParams = {
-  //   company: inputCompany,
-  //   page: inputPage ? inputPage : 1,
-  // };
-
 
   return (
     <section className="bg-light">
       <Container className=" py-5">
         <Row className="justify-content-center pb-5" style={{marginBottom: 100}}>
-          <Col lg={4}>
+          <Col>
             <h1 className="fs-1 text-secondary lh-1 mb-3 text-center">Search Jobs <span className="fs-6">(the old typy way)</span></h1>
             
             <SearchBox />
-
-        {/* <form>
-          <input
-            value={inputCompany}
-            onChange={handleChange}
-            onKeyPress={handleKeypress}
-          />
-          <Link to="/search" state={urlParams}>
-            <button type="submit">
-              Submit
-            </button>
-        </Link>
-        </form> */}
+            
           </Col>
-          {/* <Col xs={2} className="align-items-center">
-            <h1 className="fs-1 text-secondary lh-1 mb-5 text-center">~ Or ~</h1>
-          </Col>
-          <Col xs={6}>
-            <h1 className="fs-1 text-secondary lh-1 text-center">Let your personal career agent help you create an account!</h1>
-            <img 
-            src={Monkey}
-            className="flip-image"
-            alt="Smart Monkey Cartoon Character"
-            />
-            <Form className="text-center pb-5">
-              <Form.Text className="text-center mb-3 fs-5">Smash the big button, Let's Klimb!!</Form.Text>
-              <Form.Group className="col-12 mb-3 text-center">
-                  <LinkContainer to="/agent">
-                    <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">big button!</Button>
-                  </LinkContainer>
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col xs={4}>
-							<div className="card-wrapper">
-								<div className="fs-1 text-secondary lh-1 mb-5 text-center">Build your own Career Agent Let them do the Klimbing for you!</div>
-                <LinkContainer to="/agent">
-                  <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">Get Started</Button>
-                </LinkContainer>
-              </div>
-          </Col>
-          <Col xs={4}>
-            <div className="card-wrapper">
-              <div className="fs-1 text-secondary lh-1 mb-5 text-center">Considering a Relocation? Explore Cities and States</div>
-              <LinkContainer to="/sign-up">
-                <Button variant="primary" className="form-control fs-4 d-flex justify-content-center align-items-center" type="submit">Explore</Button>
-              </LinkContainer>
-            </div>
-          </Col> */}
         </Row>
       </Container>
     </section>

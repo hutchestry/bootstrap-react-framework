@@ -9,11 +9,11 @@ import Pagination from "./Pagination";
 
 // Stuff for AXIOS call
 function escapeRegex(string) { // sanitizing the search term
-  return encodeURIComponent(string.replace(/[' .*+?^${}()|[\]\\]/g, '').toLowerCase());
+  return encodeURIComponent(string.replace(/['.*+?^${}()|[\]\\]/g, '').toLowerCase());
 }
 
 const JobData = (props) => {
-  const [jobTotal, getTotalJobs] = useState("");
+  const [jobTotal, getTotalJobs] = useState(0);
   const [loaded, loadingState] = useState(false);
   const [jobData, getJobs] = useState([]);
   const [searchParams] = useSearchParams([]);
@@ -23,7 +23,7 @@ const JobData = (props) => {
     totalPages: Math.ceil(jobTotal/10),
     loaded: loaded
   }
-  console.log(state);
+  // console.log(state);
   const url = `/job-directory/jobs?search=${escapeRegex(state.searchTerm)}&page=${state.page}&key=F95uhazqvZCNlYWDQE42`;
 
   useEffect(() => {
@@ -31,38 +31,57 @@ const JobData = (props) => {
   }, [url]);
 
   const getAllJobs = () => {
+    loadingState(false);
     apiClient.get(url)
     .then(function (response) {
+      // handle 404
+      
       // handle success
+      console.log(response);
       loadingState(true);
-      getTotalJobs(response.data.total);
+      getTotalJobs(response.data.total?response.data.total:0);
       getJobs(response.data.jobs);
     })
-    .catch(error => console.error(`Error: $(error)`));
+    .catch(error => {
+      console.error(`Error: $(error)`);
+      (<h3>Sorry, we didn't find any jobs that match!! Please search again. </h3>)
+      }
+    );
   }
     return(
       <>
-        <Row>
+        {/* <Row>
           <Col>
           <Filters state={state} />
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Col lg={7}>
-          <Mappy jobs={jobData} />
+          {/* <Mappy jobs={jobData} /> */}
           </Col>
           <Col lg={5}>
-            <p><span className="fw-bold">{jobTotal} jobs for "{state.searchTerm}"! </span></p>
-          <JobMini jobs={jobData} />
 
-          {
-            state && state.loaded && (
+            
+
+            {state && state.loaded ? (
+              <>
+                <p><span className="fw-bold">{jobTotal} jobs for "{state.searchTerm}"! </span></p>
+              
+              {jobData && jobData.length > 0 ? (
+                <>
+                <JobMini jobs={jobData} state={state} />
+    
                 <Pagination
-                totPages={state.totalPages}
-                currentPage={parseInt(state.page)}
-              />
-              )
-            }
+                  totPages={state.totalPages}
+                  currentPage={parseInt(state.page)}
+                />
+              </>
+              ):
+              <h3>Sorry, we didn't find any jobs that match!! Please search again. </h3>
+              }
+              </>
+            ): 
+            <h3>Loading...</h3>}
           </Col>
         </Row>
         </>
