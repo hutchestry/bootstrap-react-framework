@@ -36,14 +36,14 @@ function Footer() {
             <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">About</a></li>
           </ul>
         </Col>
-        <Col xs={12} md={4}>
+        <Col xs={12} md={6}>
           <Form>
             <h5>Subscribe to our newsletter</h5>
             <p>Monthly digest of whats new and exciting from us.</p>
             <Form.Group className="d-flex w-100 gap-2" controlId="formBasicEmail">
               <Form.Label className="visually-hidden">Email address</Form.Label>
               <Form.Control type="email" placeholder="Email Address" />
-              <Button variant="primary" className="w-100" type="submit">Subscribe</Button>
+              <Button variant="primary" className="px-5" type="submit">Subscribe</Button>
             </Form.Group>
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
@@ -52,7 +52,7 @@ function Footer() {
         </Col>
       </Row>
       <Container className="d-flex justify-content-between py-4 my-4 border-top">
-        <p>© 2021 Company, Inc. All rights reserved.</p>
+        <p>© 2022 Klimb.ai, All rights reserved.</p>
         <ul className="list-unstyled d-flex">
           <li className="ms-3"><a className="link-dark" href="#"><svg className="bi" width="24" height="24"><use href="#twitter"></use></svg></a></li>
           <li className="ms-3"><a className="link-dark" href="#"><svg className="bi" width="24" height="24"><use href="#instagram"></use></svg></a></li>

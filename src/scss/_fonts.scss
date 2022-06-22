@@ -1,0 +1,189 @@
+//
+// BPReplay and Public Sans
+// --------------------------------------------------
+
+// sass-lint:disable variable-for-property
+@font-face {
+  font-display: fallback;
+  font-family: "bpreplay";
+  src: url("#{$fontPath}bpreplay/bpreplay.woff2") format("woff2"),
+    url("#{$fontPath}bpreplay/bpreplay.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-display: fallback;
+  font-family: "bpreplay-italic";
+  src: url("#{$fontPath}bpreplay/bpreplayitalics.woff2") format("woff2"),
+    url("#{$fontPath}bpreplay/bpreplayitalics.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-display: fallback;
+  font-family: "bpreplay-bold";
+  src: url("#{$fontPath}bpreplay/bpreplaybold.woff2") format("woff2"),
+    url("#{$fontPath}bpreplay/bpreplaybold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-display: fallback;
+  font-family: "bpreplay-bold-italic";
+  src: url("#{$fontPath}bpreplay/bpreplaybolditalics.woff2") format("woff2"),
+    url("#{$fontPath}bpreplay/bpreplaybolditalics.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-display: fallback;
+    font-family: "public-sans-regular";
+    src: url("#{$fontPath}public-sans/PublicSans-Regular.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-black";
+    src: url("#{$fontPath}public-sans/PublicSans-Black.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-Black.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-black-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-BlackItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-BlackItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-bold";
+    src: url("#{$fontPath}public-sans/PublicSans-Bold.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-Bold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-bold-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-BoldItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-BoldItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-extra-bold";
+    src: url("#{$fontPath}public-sans/PublicSans-ExtraBold.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-ExtraBold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-extra-bold-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-ExtraBoldItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-ExtraBoldItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-extra-light";
+    src: url("#{$fontPath}public-sans/PublicSans-ExtraLight.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-ExtraLight.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-extra-light-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-ExtraLightItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-ExtraLightItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-Italic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-extra-light-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-ExtraLightItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-ExtraLightItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-light";
+    src: url("#{$fontPath}public-sans/PublicSans-Light.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-Light.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-light-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-LightItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-LightItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-medium";
+    src: url("#{$fontPath}public-sans/PublicSans-Medium.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-Medium.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-medium-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-MediumItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-MediumItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-semi-bold";
+    src: url("#{$fontPath}public-sans/PublicSans-SemiBold.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-SemiBold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-semi-bold-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-SemiBoldItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-SemiBoldItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-thin";
+    src: url("#{$fontPath}public-sans/PublicSans-Thin.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-Thin.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-display: fallback;
+    font-family: "public-sans-thin-italic";
+    src: url("#{$fontPath}public-sans/PublicSans-ThinItalic.woff2") format("woff2"),
+      url("#{$fontPath}public-sans/PublicSans-ThinItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }

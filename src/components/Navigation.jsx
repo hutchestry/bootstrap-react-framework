@@ -13,43 +13,51 @@ function Navigation() {
           <Container>
             <Navbar.Brand>
             <LinkContainer to="/">
-              <Nav.Link className="">
-                Site Title
+              <Nav.Link className="display-font__bold jumbo-text justify-content-center">
+                klimb.ai
               </Nav.Link>
             </LinkContainer>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="" id="basic-navbar-nav">
               <Nav className="ms-auto">
-                <LinkContainer to="/">
+                <LinkContainer to="/research">
                   <Nav.Link>
-                    Home
-                    <span className="sr-only">(current)</span>
+                    Research
                   </Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/about">
+                <LinkContainer to="/companies">
                   <Nav.Link>
-                    About
+                    Companies
                   </Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/contact">
+                <LinkContainer to="/salaries">
                   <Nav.Link>
-                    Contact
+                    Salaries
                   </Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/blog">
+                {/* <LinkContainer to="/agent">
                   <Nav.Link>
-                      Blog
+                      Agent
                   </Nav.Link>
-                </LinkContainer>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                </LinkContainer> */}
+                {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown>
-                  <Button variant="primary">Primary</Button>{' '}
+                </NavDropdown> */}
+                <LinkContainer to="/agent">
+                  <Nav.Link>
+                    <Button>Sign Up</Button>
+                  </Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/sign-in">
+                  <Nav.Link>
+                      Sign In
+                  </Nav.Link>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
           </Container>

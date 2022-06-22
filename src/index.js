@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
@@ -14,6 +13,18 @@ import {
   Blog,
   Posts,
   Post,
+  SignIn,
+  SignUp,
+  Account,
+  Companies,
+  Agent,
+  Research,
+  Search,
+  Salaries,
+  Interview,
+  JobListing,
+  Profile,
+  EditProfile
 } from "./pages";
 // Importing Sass with Bootstrap CSS
 import './App.scss';
@@ -24,7 +35,21 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
+      <Route path="/account" element={<Account />} />
+      <Route path="/salaries" element={<Salaries />} />
+      <Route path="/jobs" element={<Search />} />
+      <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/sign-up" element={<SignUp />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/research" element={<Research />} />
+      <Route path="/companies" element={<Companies />} />
+      <Route path="/interview" element={<Interview />} />
+      <Route path="/listing" element={<JobListing />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/edit-profile" element={<EditProfile />} />
+
+      <Route path="/agent" element={<Agent />} />
+      <Route path="/search" element={<Search />} />
       <Route path="/blog" element={<Blog />}>
         <Route path="" element={<Posts />} />
         <Route path=":postSlug" element={<Post />} />

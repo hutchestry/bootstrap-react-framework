@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 
 function Contact() {
   const { register, handleSubmit } = useForm();
-const onSubmit = data => alert(JSON.stringify(data));;
+const onSubmit = data => console.log(JSON.stringify(data));;
 
   return (
     <section className="bg-light">
@@ -44,7 +44,7 @@ const onSubmit = data => alert(JSON.stringify(data));;
 
           <hr />
 
-            <small className="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+            <small className="text-muted">By clicking Submit, you agree to the terms of use.</small>
 
           </Form>
           </Col>
