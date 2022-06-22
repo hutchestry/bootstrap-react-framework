@@ -28,7 +28,7 @@ export const Mappy = (props) => {
   // Load the Google maps scripts
   const { isLoaded } = useLoadScript({
     // Enter your own Google Maps API key
-    googleMapsApiKey: "AIzaSyCEqtWCYVF3xp62MihGq7ReL8EMy5qRNHQ"
+    googleMapsApiKey: process.env.REACT_APP_JOB_API_KEY
   });
 
   // Iterate myPlaces to size, center, and zoom map to contain all markers

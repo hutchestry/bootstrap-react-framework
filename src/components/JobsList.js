@@ -24,7 +24,7 @@ const JobData = (props) => {
     loaded: loaded
   }
   // console.log(state);
-  const url = `/job-directory/jobs?search=${escapeRegex(state.searchTerm)}&page=${state.page}&key=F95uhazqvZCNlYWDQE42`;
+  const url = `/job-directory/jobs?search=${escapeRegex(state.searchTerm)}&page=${state.page}&key=${process.env.REACT_APP_JOB_API_KEY}`;
 
   useEffect(() => {
     getAllJobs();
@@ -34,10 +34,8 @@ const JobData = (props) => {
     loadingState(false);
     apiClient.get(url)
     .then(function (response) {
-      // handle 404
-      
-      // handle success
       console.log(response);
+      // handle success
       loadingState(true);
       getTotalJobs(response.data.total?response.data.total:0);
       getJobs(response.data.jobs);
@@ -57,7 +55,9 @@ const JobData = (props) => {
         </Row> */}
         <Row>
           <Col lg={7}>
-          {/* <Mappy jobs={jobData} /> */}
+          {state && state.loaded && jobData && jobData.length > 0 && (
+          <Mappy jobs={jobData} state={state} />
+          )}
           </Col>
           <Col lg={5}>
 

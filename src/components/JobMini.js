@@ -4,8 +4,8 @@ import Collapse from 'react-bootstrap/Collapse'
 
 export const JobMini = (props) => {
   const { jobs } = props;
-  console.log(props.state);
 
+  
   if (jobs && jobs.length > 0) {
   return (
     <>
@@ -19,7 +19,7 @@ export const JobMini = (props) => {
                 jobCategory={data.jobCategory}
                 jobType={data.jobType}
                 jobLocation={data.jobLocation}
-                jobDescription={data.jobDescription.replace(/(\.\s+)/g,"\$1<br /><br />")}
+                jobDescription={data.jobDescription.replace(/(\.\s\s\s+)/g,"\$1<br /><br />")}
                 jobPostDate={data.jobPostDate}
                 jobID={data.jobID}
                 jobApplyLink={data.jobApplyLink}
@@ -72,7 +72,7 @@ const Job = ({
         </a>
         <Collapse in={open}>
         <div>
-          <div className="job-description"> {jobDescription}</div>
+          <div className="job-description" dangerouslySetInnerHTML={{__html: jobDescription}}/>
           <div className="listing-block justify-center">
             <a className="job-apply-btn job-applylink mt-3" href={jobApplyLink} target='blank'>
               Apply Now
